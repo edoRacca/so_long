@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 14:44:46 by lparolis          #+#    #+#             */
-/*   Updated: 2025/01/12 13:15:37 by lparolis         ###   ########.fr       */
+/*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
+/*   Updated: 2025/01/12 23:36:34 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "eder.h"
+#include "so_long.h"
 
 int	main(int ac, char **av)
 {

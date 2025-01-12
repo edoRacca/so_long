@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 09:33:13 by lparolis          #+#    #+#             */
-/*   Updated: 2025/01/11 11:25:444 by edraccan         ###   ########.fr       */
+/*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
+/*   Updated: 2025/01/12 23:33:07 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "eder.h"
+#include "so_long.h"
 
 // Una funzione che usando gnl si crea un array di puntatori contenente la  mappa
 // (contenuto all'interno della solita struttura "data")

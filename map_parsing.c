@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 09:33:27 by lparolis          #+#    #+#             */
-/*   Updated: 2025/01/11 10:27:332 by lparolis         ###   ########.fr       */
+/*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
+/*   Updated: 2025/01/12 23:22:47 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "eder.h"
+
+#include "so_long.h"
 
 //TODO Check da fare:
 	// -Lunghezza righe tutte uguali
@@ -87,7 +88,7 @@ int	wall_checker(size_t rows, size_t cols, t_struct *data)
 		//se trova uno 0 oppure una lettera richiama se stessa su quella casella, se invece
 		//trova un 1 oppure una X non fa nulla se non trasformare la casella attuale in X
 
-void	pathfinder(t_struct *data, int x, int y)
+/* void	pathfinder(t_struct *data, int x, int y)
 { 
 	data->map_copy[x][y] == 'X';
 	if (data->map_copy[x - 1][y] != '1' || data->map_copy[x - 1][y] != 'X')
@@ -95,4 +96,4 @@ void	pathfinder(t_struct *data, int x, int y)
 		pathfinder(&data, x - 1, y);
 	}
 	
-}
+} */
