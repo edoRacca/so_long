@@ -22,25 +22,27 @@ valgrind: re
 	clear && valgrind --leak-check=full -s ./so_long map.ber
 
 $(NAME): $(OBJ) $(GNL_OBJ)
-	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS)  -o $(NAME)
+	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
 
 %.o: %.c
 	gcc $(CCFLAGS) -Iincludes -c $< -o $@
 
 printf:
-	echo Compiling ft_printf...
+	@echo Compiling ft_printf...
 	@make -C $(PRINTFDIR)
 
 minilibx:
-	echo Compiling MiniLibx...
+	@echo Compiling MiniLibx...
 	@make -C minilibx-linux
 
 clean:
-	echo Cleaning object_files...
+	@echo Cleaning object_files...
 	@rm -f $(OBJ) $(GNL_OBJ)
+	@make clean -C $(PRINTFDIR)
 
 fclean: clean
-	make clean -C minilibx-linux
+	@make clean -C minilibx-linux
+	@make fclean -C $(PRINTFDIR)
 	@rm -f $(NAME)
 
 re : fclean all
