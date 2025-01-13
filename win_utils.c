@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/12 23:21:44 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:19:51 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_close(int key, t_struct *data)
 		mlx_destroy_window(data->mlx, data->win);
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
-		spread_democracy(data);
+		free_maps(data);
 		exit (0);
 	}
 	return (0);
@@ -35,6 +35,6 @@ int ft_cross_close(t_struct *data)
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
-	spread_democracy(data);
+	free_maps(data);
 	exit(0);	
 }

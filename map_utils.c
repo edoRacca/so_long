@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/12 23:33:07 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:18:39 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	map_copy(t_struct *data)
 }
 
 // Questa funzione mi va a liberare il contenuto della struttura
-void	spread_democracy(t_struct	*data)
+void	free_maps(t_struct	*data)
 {
 	int	i;
 

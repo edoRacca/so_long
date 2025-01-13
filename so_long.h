@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/12 23:30:20 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:18:49 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		alloc_map(t_struct *data);
 int		map_generator(t_struct *data);
 int		wall_checker(size_t rows, size_t cols, t_struct *data);
 int		ft_map_parsing(t_struct *data);
-void	spread_democracy(t_struct *data);
+void	free_maps(t_struct	*data);
 void	map_copy(t_struct *data);
 void	player_finder(t_struct *data);
 

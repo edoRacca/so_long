@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/12 23:22:47 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/13 15:22:23 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	ft_map_parsing(t_struct *data)
 		return(FALSE);
 	row_length = ft_strlen(data->map[0]);
 	data->cols = row_length;
+	printf("ENTRA\n");
 	while (data->map[i])
 	{
 		if (row_length != ft_strlen(data->map[i]))
