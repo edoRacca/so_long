@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 15:18:39 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:09:11 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	map_generator(t_struct *data)
 	if (fd < 0)
 		return (FALSE);
 	i = 0;
-	line = get_next_line(fd);
 	alloc_map(data);
+	line = get_next_line(fd);
 	while (line)
 	{
 		data->map[i] = ft_strdup(line);
 		if (ft_strchr(line, '\n'))	
 			data->map[i][ft_strlen(line) - 1] = '\0';
-		ft_printf("%s\n", data->map[i]);
+		// ft_printf("%s\n", data->map[i]);
 		if (line)
 			free(line);
 		line = get_next_line(fd);
@@ -57,20 +57,20 @@ int	alloc_map(t_struct *data)
 	fd = open(data->path, O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
-	col = 0;
+	row = 0;
 	line = get_next_line(fd);
-	row = ft_strlen(line);
+	col = ft_strlen(line);
 	while (line)
 	{
 		if (line)
 			free(line);
 		line = get_next_line(fd);
-		col++;
+		row++;
 	}
 	data->map = ft_calloc(((row * col) + 1), sizeof(char *));
 	data->map_copy = ft_calloc(((row * col) + 1), sizeof(char *));
-	data->map[col] = NULL;
-	data->map_copy[col] = NULL;
+	data->map[row] = NULL;
+	data->map_copy[row] = NULL;
 	return (TRUE);
 }
 
@@ -85,7 +85,7 @@ void	map_copy(t_struct *data)
 	while (data->map[i])
 	{
 		data->map_copy[i] = ft_strdup(data->map[i]);
-		ft_printf("%s %d\n", data->map_copy[i], i);
+		// ft_printf("%s %d\n", data->map_copy[i], i);
 		i++;
 	}
 }
@@ -96,7 +96,7 @@ void	free_maps(t_struct	*data)
 	int	i;
 
 	i = 0;
-	while (i < data->rows)
+	while (data->map[i])
 	{
 		free(data->map[i]);
 		free(data->map_copy[i]);
@@ -104,29 +104,4 @@ void	free_maps(t_struct	*data)
 	}
 	free(data->map);
 	free(data->map_copy);
-}
-
-// Questa funzione trova la posizione del player all'interno della mappa
-// e la salva all'interno di un array di interi nella struttura "data"
-void	player_finder(t_struct *data)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (data->map[i][j] != '\0')
-	{
-		while (data->map[i][j] != '\0')
-		{
-			if (data->map[i][j] == 'P')
-			{
-				data->p_pos[0] = j;
-				data->p_pos[1] = i;
-				ft_printf("%c", data->map[i][j]);
-			}
-			j++;
-		}
-		i++;
-	}	
 }

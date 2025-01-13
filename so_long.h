@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 15:18:49 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:31:10 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int		ft_map_parsing(t_struct *data);
 void	free_maps(t_struct	*data);
 void	map_copy(t_struct *data);
 void	player_finder(t_struct *data);
+void	path_finder(t_struct *data, int x, int y);
 
 #endif

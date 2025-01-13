@@ -1,6 +1,6 @@
 NAME = so_long
 
-SRC = $(addsuffix .c, so_long win_utils map_parsing map_utils)
+SRC = $(addsuffix .c, so_long win_utils map_parsing map_utils object_finder)
 GNL_SRC = $(addprefix get_next_line/, get_next_line.c)
 
 PRINTFLIB = ft_printf/libftprintf.a
@@ -14,12 +14,6 @@ CC = cc
 CCFLAGS = -Wextra -Wall -Werror -g
 
 all: minilibx printf $(NAME)
-
-run: re
-	clear && ./so_long map.ber
-
-valgrind: re
-	clear && valgrind --leak-check=full -s ./so_long map.ber
 
 $(NAME): $(OBJ) $(GNL_OBJ)
 	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
