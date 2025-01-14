@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:08:39 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/14 17:46:18 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:51:58 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	check_objects(t_struct *data)
 		}
 		i++;
 	}
-	if (data->c_flag < 1 || data->e_flag != 1 && data->p_flag != 1)
+	if (data->c_flag < 1 || data->e_flag != 1 || data->p_flag != 1)
 		return (FALSE);
 	return (TRUE);
 }

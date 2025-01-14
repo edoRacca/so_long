@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 17:22:10 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:55:18 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);
-	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "corbezzoli!");
+	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "GOTTA CATCH 'EM ALL");
 	mlx_hook(data.win, 17, 1L << 0, ft_cross_close, &data);
 	mlx_hook(data.win, 2, 1L << 0, ft_close, &data);
 	mlx_loop(data.mlx);
