@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 18:37:00 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:37:40 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,23 @@
 */
 int	ft_map_parsing(t_struct *data)
 {
-	size_t	row_length;
 	size_t 	i;
 
 	i = 0;
 	if(map_generator(data) == FALSE)
 		return(FALSE);
-	row_length = ft_strlen(data->map[0]);
-	data->cols = row_length;
 	while (data->map[i])
 	{
-		if (row_length != ft_strlen(data->map[i]))
+		if (data->cols - 1 != (int)ft_strlen(data->map[i]))
 			return (free_maps(data), FALSE);
 		i++;
 	}
-	i = 0;
-	while (data->map[i])
-		i++;
-	data->rows = i + 1;
-	if (wall_checker(i, row_length, data) == FALSE)
+	if (wall_checker(i, data->cols - 1, data) == FALSE)
 		return (free_maps(data), FALSE);
-	path_finder(data, data->p_pos[0], data->p_pos[1]);
-	int pippo = 0;
-	while (data->map_copy[pippo])
-	{
-		printf("%s\n", data->map_copy[pippo]);
-		pippo++;
-	}
+	player_finder(data);
+	path_finder(data, data->p_pos[1], data->p_pos[0]);
+	if (check_accessible_map(data) == FALSE)
+		return (FALSE);
 	return (TRUE);
 }
 
@@ -85,16 +75,17 @@ int	wall_checker(size_t rows, size_t cols, t_struct *data)
 		//usa la ricorsione, verifica le posizioni intorno alla casella in cui si trova e
 		//se trova uno 0 oppure una lettera richiama se stessa su quella casella, se invece
 		//trova un 1 oppure una X non fa nulla se non trasformare la casella attuale in X
-/* 
+
 void	path_finder(t_struct *data, int x, int y)
 { 
-	if (data->map_copy[x][y] != 'X' || data->map_copy[x][y] != '1')
-	{
-        data->map_copy[x][y] = 'X';
-        path_finder(data, x + 1, y);
-        path_finder(data, x - 1, y);
-        path_finder(data, x, y + 1);
-        path_finder(data, x, y - 1);
-    }
+	if (x == data->rows || y == data->cols)
+		return ;
+	if (data->map_copy[x][y] == 'X' || data->map_copy[x][y] == '1')
+		return ;
+	data->map_copy[x][y] = 'X';
+	path_finder(data, x + 1, y);
+	path_finder(data, x - 1, y);
+	path_finder(data, x, y + 1);
+	path_finder(data, x, y - 1);
+	return ;
 }
- */

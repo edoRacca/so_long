@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_finder.c                                    :+:      :+:    :+:   */
+/*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:08:39 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 18:09:29 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:36:48 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	player_finder(t_struct *data)
 	int	j;
 
 	i = 0;
-	j = 0;
-	while (data->map[i][j] != '\0')
+	while (data->map[i])
 	{
-		while (data->map[i][j] != '\0')
+		j = 0;
+		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'P')
 			{
@@ -33,5 +33,26 @@ void	player_finder(t_struct *data)
 			j++;
 		}
 		i++;
-	}	
+	}
+}
+
+int	check_accessible_map(t_struct *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map_copy[i])
+	{
+		j = 0;
+		while (data->map_copy[i][j])
+		{
+			if (data->map_copy[i][j] == 'C' || data->map_copy[i][j] == 'E'\
+				|| data->map_copy[i][j] == 'P')
+				return (FALSE);
+			j++;
+		}
+		i++;
+	}
+	return (TRUE);
 }

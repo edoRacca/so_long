@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 18:09:11 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:09:17 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	map_generator(t_struct *data)
 		data->map[i] = ft_strdup(line);
 		if (ft_strchr(line, '\n'))	
 			data->map[i][ft_strlen(line) - 1] = '\0';
-		// ft_printf("%s\n", data->map[i]);
 		if (line)
 			free(line);
 		line = get_next_line(fd);
@@ -50,27 +49,25 @@ int	map_generator(t_struct *data)
 int	alloc_map(t_struct *data)
 {
 	int		fd;
-	int		row;
-	int 	col;
 	char	*line;
 
 	fd = open(data->path, O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
-	row = 0;
+	data->rows = 0;
 	line = get_next_line(fd);
-	col = ft_strlen(line);
+	data->cols = ft_strlen(line);
 	while (line)
 	{
 		if (line)
 			free(line);
 		line = get_next_line(fd);
-		row++;
+		data->rows++;
 	}
-	data->map = ft_calloc(((row * col) + 1), sizeof(char *));
-	data->map_copy = ft_calloc(((row * col) + 1), sizeof(char *));
-	data->map[row] = NULL;
-	data->map_copy[row] = NULL;
+	data->map = ft_calloc(((data->rows * data->cols) + 1), sizeof(char *));
+	data->map_copy = ft_calloc(((data->rows * data->cols) + 1), sizeof(char *));
+	data->map[data->rows] = NULL;
+	data->map_copy[data->rows] = NULL;
 	return (TRUE);
 }
 
@@ -85,7 +82,6 @@ void	map_copy(t_struct *data)
 	while (data->map[i])
 	{
 		data->map_copy[i] = ft_strdup(data->map[i]);
-		// ft_printf("%s %d\n", data->map_copy[i], i);
 		i++;
 	}
 }
