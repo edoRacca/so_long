@@ -6,16 +6,13 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/14 13:37:40 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:47:20 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "so_long.h"
 
-/* TODO Check da fare:
-** - Controllo di un percorso valido all'interno della mappa
-*/
 /* REVIEW 
 ** Questa funzione controlla in primis se le righe di tutta la matrice sono uguali
 ** Poi richiama una funzione che controlla se i muri sono composti da 1 
@@ -36,6 +33,8 @@ int	ft_map_parsing(t_struct *data)
 	}
 	if (wall_checker(i, data->cols - 1, data) == FALSE)
 		return (free_maps(data), FALSE);
+	if (check_objects(data) == FALSE)
+		return (FALSE);
 	player_finder(data);
 	path_finder(data, data->p_pos[1], data->p_pos[0]);
 	if (check_accessible_map(data) == FALSE)

@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:08:39 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/14 13:36:48 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/14 17:46:18 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,34 @@ int	check_accessible_map(t_struct *data)
 		}
 		i++;
 	}
+	return (TRUE);
+}
+
+int	check_objects(t_struct *data)
+{
+	int i;
+	int	j;
+
+	data->c_flag = 0;
+	data->p_flag = 0;
+	data->e_flag = 0;
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'C')
+				data->c_flag++;
+			if (data->map[i][j] == 'E')
+				data->e_flag++;
+			if (data->map[i][j] == 'P')
+				data->p_flag++;
+			j++;
+		}
+		i++;
+	}
+	if (data->c_flag < 1 || data->e_flag != 1 && data->p_flag != 1)
+		return (FALSE);
 	return (TRUE);
 }
