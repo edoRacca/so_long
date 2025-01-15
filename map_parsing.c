@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/14 17:50:04 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:05:29 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,18 @@
 
 /* REVIEW 
 ** Questa funzione controlla in primis se le righe di tutta la matrice sono uguali
-** Poi richiama una funzione che controlla se i muri sono composti da 1 
+** Poi controlla che i muri siano composti da 1
+** Controlla che ci siano almeno 1 C, solo 1 P e solo 1 E 
 ** Se passa tutti questi controlli la funzione restitusce TRUE(1)
 */
 int	ft_map_parsing(t_struct *data)
 {
-	size_t 	i;
-
-	i = 0;
+	
 	if(map_generator(data) == FALSE)
 		return(FALSE);
-	while (data->map[i])
-	{
-		if (data->cols - 1 != (int)ft_strlen(data->map[i]))
-			return (free_maps(data), FALSE);
-		i++;
-	}
-	if (wall_checker(i, data->cols - 1, data) == FALSE)
+	if (check_rows_len(data) == FALSE)
+		return (FALSE);
+	if (wall_checker(data->rows, data->cols - 1, data) == FALSE)
 		return (free_maps(data), FALSE);
 	if (check_objects(data) == FALSE)
 		return (free_maps(data), FALSE);
@@ -87,4 +82,18 @@ void	path_finder(t_struct *data, int x, int y)
 	path_finder(data, x, y + 1);
 	path_finder(data, x, y - 1);
 	return ;
+}
+
+int	check_rows_len(t_struct *data)
+{
+	size_t 	i;
+
+	i = 0;
+	while (data->map[i])
+	{
+		if (data->cols - 1 != (int)ft_strlen(data->map[i]))
+			return (free_maps(data), FALSE);
+		i++;
+	}
+	return (TRUE);
 }
