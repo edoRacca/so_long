@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/15 11:05:29 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/15 11:15:29 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_map_parsing(t_struct *data)
 		return(FALSE);
 	if (check_rows_len(data) == FALSE)
 		return (FALSE);
+	if (check_map_values(data) == FALSE)
+		return (free_maps(data), FALSE);
 	if (wall_checker(data->rows, data->cols - 1, data) == FALSE)
 		return (free_maps(data), FALSE);
 	if (check_objects(data) == FALSE)
@@ -93,6 +95,28 @@ int	check_rows_len(t_struct *data)
 	{
 		if (data->cols - 1 != (int)ft_strlen(data->map[i]))
 			return (free_maps(data), FALSE);
+		i++;
+	}
+	return (TRUE);
+}
+
+int	check_map_values(t_struct *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] != 'E' && data->map[i][j] != 'P' && \
+			data->map[i][j] != 'C' && data->map[i][j] != '0' && \
+			data->map[i][j] != '1')
+				return (FALSE);
+			j++;
+		}
 		i++;
 	}
 	return (TRUE);
