@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/15 11:15:29 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/15 17:48:08 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 */
 int	ft_map_parsing(t_struct *data)
 {
-	
 	if(map_generator(data) == FALSE)
 		return(FALSE);
 	if (check_rows_len(data) == FALSE)
@@ -39,9 +38,10 @@ int	ft_map_parsing(t_struct *data)
 	return (TRUE);
 }
 
-//REVIEW Questa funzione controlla che tutti i muri della mappa siano composti dal valore 1
-		// il numero di righe ed il numero di colonne vengono passati alla funzione come argomento
-		// se la mappa non passa il controllo viene restituito FALSE = 1
+/* REVIEW Questa funzione controlla che tutti i muri della mappa siano composti dal valore 1
+** il numero di righe ed il numero di colonne vengono passati alla funzione come argomento
+** se la mappa non passa il controllo viene restituito FALSE = 1
+*/
 int	wall_checker(size_t rows, size_t cols, t_struct *data)
 {
 	size_t	i;

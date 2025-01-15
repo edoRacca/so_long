@@ -6,11 +6,18 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/14 13:09:17 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:01:12 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	get_img_path(t_struct *data)
+{
+	data->c_path = "textures/";
+	data->e_path = "textures/";
+	data->p_path = "textures/Slowbro.xpm";
+}
 
 // Una funzione che usando gnl si crea un array di puntatori contenente la  mappa
 // (contenuto all'interno della solita struttura "data")
@@ -22,9 +29,10 @@ int	map_generator(t_struct *data)
 	int		i;
 	char	*line;
 
-	fd = open(data->path, O_RDONLY);
+	fd = open(data->map_path, O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
+	get_img_path(data);
 	i = 0;
 	alloc_map(data);
 	line = get_next_line(fd);
@@ -51,7 +59,7 @@ int	alloc_map(t_struct *data)
 	int		fd;
 	char	*line;
 
-	fd = open(data->path, O_RDONLY);
+	fd = open(data->map_path, O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
 	data->rows = 0;

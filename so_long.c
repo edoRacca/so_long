@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/15 10:50:32 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:08:38 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 		ft_printf("Error\nInvalid arguments.");
 		return (0);
 	}
-	data.path = av[1];
+	data.map_path = av[1];
 	if (ft_map_parsing(&data) == FALSE)
 	{
 		ft_printf("Error\nInvalid map\n");
@@ -30,7 +30,9 @@ int	main(int ac, char **av)
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);
-	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "GOTTA CATCH 'EM ALL");
+	data.win = mlx_new_window(data.mlx, WIDTH * data.cols, HEIGHT * data.rows, "GOTTA CATCH 'EM ALL");
+	printf("wid: %d, hei: %d\n", WIDTH * data.cols, HEIGHT * data.rows);
+	map_start(&data);
 	mlx_hook(data.win, 17, 1L << 0, ft_cross_close, &data);
 	mlx_hook(data.win, 2, 1L << 0, ft_close, &data);
 	mlx_loop(data.mlx);
