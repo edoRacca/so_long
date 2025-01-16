@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/15 18:04:34 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:20:35 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define SO_LONG_H
 
 # define MALLOC_ERROR 1
-# define WIDTH 32
-# define HEIGHT 32
+# define WIDTH 48
+# define HEIGHT 48
+# define HIMG HEIGHT
+# define WIMG WIDTH
 # define TRUE 1
 # define FALSE 0
 
@@ -36,13 +38,20 @@ typedef struct s_struct
 	char	**map_copy;
 	char	*p_path;
 	void	*p_img;
-	int		p_img_w;
-	int		p_img_h;
+	int		p_wimg;
+	int		p_himg;
 	char	*e_path;
+	char	*e_img;
+	int		e_wimg;
+	int		e_himg;
 	char	*c_path;
+	char	*c_img;
+	int		c_wimg;
+	int		c_himg;
 	int		rows;
 	int		cols;
 	int		p_pos[2];
+	int		e_pos[2];
 	int		p_flag;
 	int		c_flag;
 	int		e_flag;
@@ -58,6 +67,7 @@ int		wall_checker(size_t rows, size_t cols, t_struct *data);
 int		ft_map_parsing(t_struct *data);
 void	free_maps(t_struct	*data);
 void	map_copy(t_struct *data);
+void	exit_finder(t_struct *data);
 void	player_finder(t_struct *data);
 void	path_finder(t_struct *data, int x, int y);
 int		check_rows_len(t_struct *data);

@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/15 17:48:08 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/16 15:08:44 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_map_parsing(t_struct *data)
 	if (check_objects(data) == FALSE)
 		return (free_maps(data), FALSE);
 	player_finder(data);
+	exit_finder(data);
+	get_img_path(data);
 	path_finder(data, data->p_pos[1], data->p_pos[0]);
 	if (check_accessible_map(data) == FALSE)
 		return (free_maps(data), FALSE);

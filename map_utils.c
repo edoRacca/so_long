@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/15 18:01:12 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/16 17:26:31 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	get_img_path(t_struct *data)
 {
-	data->c_path = "textures/";
-	data->e_path = "textures/";
-	data->p_path = "textures/Slowbro.xpm";
+	data->c_path = "textures/masterball48.xpm";
+	if (data->e_pos[0] <= data->cols / 2)
+		data->e_path = "textures/pokeball_left48.xpm";
+	else
+		data->e_path = "textures/pokeball_right48.xpm";
+	data->p_path = "textures/slowbro48.xpm";
 }
 
 // Una funzione che usando gnl si crea un array di puntatori contenente la  mappa
@@ -32,7 +35,6 @@ int	map_generator(t_struct *data)
 	fd = open(data->map_path, O_RDONLY);
 	if (fd < 0)
 		return (FALSE);
-	get_img_path(data);
 	i = 0;
 	alloc_map(data);
 	line = get_next_line(fd);

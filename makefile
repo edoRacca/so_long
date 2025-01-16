@@ -1,6 +1,6 @@
 NAME = so_long
 
-SRC = $(addsuffix .c, so_long win_utils map_parsing map_utils map_checker display_map)
+SRC = $(addsuffix .c, so_long close_function map_parsing map_utils map_checker display_map)
 GNL_SRC = $(addprefix get_next_line/, get_next_line.c)
 
 PRINTFLIB = ft_printf/libftprintf.a

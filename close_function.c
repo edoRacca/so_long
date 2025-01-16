@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win_utils.c                                        :+:      :+:    :+:   */
+/*   close_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/13 17:08:50 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:55:16 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 // si chiuda
 int	ft_close(int key, t_struct *data)
 {
-	// ft_printf("%d\n", key);
 	if (key == 65307)
 	{
+		mlx_destroy_image(data->mlx, data->p_img);
 		mlx_destroy_window(data->mlx, data->win);
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
@@ -32,6 +32,7 @@ int	ft_close(int key, t_struct *data)
 // dell finestra la finestra si chiuda
 int ft_cross_close(t_struct *data)
 {
+	mlx_destroy_image(data->mlx, data->p_img);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
