@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/16 12:06:06 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:39:12 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	main(int ac, char **av)
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);
-	data.win = mlx_new_window(data.mlx, WIDTH * data.cols, HEIGHT * data.rows, "GOTTA CATCH 'EM ALL");
-	// printf("img wid: %d, img hei: %d\n", WIMG, HIMG);
+	data.win = mlx_new_window(data.mlx, WIDTH * (data.cols - 1), HEIGHT * data.rows, "GOTTA CATCH 'EM ALL");
+	printf("col: %d, rows: %d, map len: %d, map height: %d\n", data.cols, data.rows, WIDTH * data.cols - 1, HEIGHT * data.rows);
 	map_start(&data);
 	mlx_hook(data.win, 17, 1L << 0, ft_cross_close, &data);
 	mlx_hook(data.win, 2, 1L << 0, ft_close, &data);

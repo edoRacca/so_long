@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/16 17:26:31 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:52:55 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	get_img_path(t_struct *data)
 {
-	data->c_path = "textures/masterball48.xpm";
+	data->c_path = "textures/masterball48_2.xpm";
 	if (data->e_pos[0] <= data->cols / 2)
-		data->e_path = "textures/pokeball_left48.xpm";
+		data->e_path = "textures/pokeball48_left.xpm";
 	else
-		data->e_path = "textures/pokeball_right48.xpm";
-	data->p_path = "textures/slowbro48.xpm";
+		data->e_path = "textures/pokeball48_right.xpm";
+	data->p_path = "textures/slowbro48_right.xpm";
+	data->w_path = "textures/grass.xpm";
 }
 
 // Una funzione che usando gnl si crea un array di puntatori contenente la  mappa

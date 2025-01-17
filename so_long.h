@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/16 17:20:35 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:34:36 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ typedef struct s_struct
 	char	*c_img;
 	int		c_wimg;
 	int		c_himg;
+	char	*w_path;
+	char	*w_img;
+	int		w_wimg;
+	int		w_himg;
 	int		rows;
 	int		cols;
 	int		p_pos[2];
@@ -75,6 +79,8 @@ int		check_map_values(t_struct *data);
 int		check_accessible_map(t_struct *data);
 int		check_objects(t_struct *data);
 
+void	fullfill_map(t_struct *data);
+void	create_imgs(t_struct *data);
 void	map_start(t_struct *data);
 
 #endif
