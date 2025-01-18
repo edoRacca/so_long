@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 10:20:39 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:31:36 by lparolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 void	create_imgs(t_struct *data)
 {
-	data->p_wimg = WIMG;
-	data->p_himg = HIMG;
-	data->e_wimg = WIMG;
-	data->e_himg = HIMG;
-	data->c_wimg = WIMG;
-	data->c_himg = HIMG;
-	data->w_wimg = WIMG;
-	data->w_himg = HIMG;
-	data->p_img = mlx_xpm_file_to_image(data->mlx, data->p_path, &data->p_wimg, &data->p_himg);
-	data->e_img = mlx_xpm_file_to_image(data->mlx, data->e_path, &data->e_wimg, &data->e_himg);
-	data->c_img = mlx_xpm_file_to_image(data->mlx, data->c_path, &data->c_wimg, &data->c_himg);
-	data->w_img = mlx_xpm_file_to_image(data->mlx, data->w_path, &data->w_wimg, &data->w_himg);
+	data->width = WIMG;
+	data->height = HIMG;
+	data->p_img = mlx_xpm_file_to_image(data->mlx, data->p_path, &data->width, &data->height);
+	data->e_img = mlx_xpm_file_to_image(data->mlx, data->e_path, &data->width, &data->height);
+	data->c_img = mlx_xpm_file_to_image(data->mlx, data->c_path, &data->width, &data->height);
+	data->w_img = mlx_xpm_file_to_image(data->mlx, data->w_path, &data->width, &data->height);
 }
 
 void	fullfill_map(t_struct *data)

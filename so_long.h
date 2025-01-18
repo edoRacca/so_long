@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 11:59:49 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:24:31 by lparolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define WIMG WIDTH
 # define TRUE 1
 # define FALSE 0
+# define ROW 1
+# define COL 0
 
 # include "./minilibx-linux/mlx.h"
 # include "ft_printf/ft_printf.h"
@@ -38,20 +40,14 @@ typedef struct s_struct
 	char	**map_copy;
 	char	*p_path;
 	void	*p_img;
-	int		p_wimg;
-	int		p_himg;
 	char	*e_path;
 	char	*e_img;
-	int		e_wimg;
-	int		e_himg;
 	char	*c_path;
 	char	*c_img;
-	int		c_wimg;
-	int		c_himg;
 	char	*w_path;
 	char	*w_img;
-	int		w_wimg;
-	int		w_himg;
+	int		width;
+	int		height;
 	int		rows;
 	int		cols;
 	int		p_pos[2];
@@ -59,6 +55,9 @@ typedef struct s_struct
 	int		p_flag;
 	int		c_flag;
 	int		e_flag;
+	int		temp_flag;
+	int		exit_flag;
+	int		moves;
 }				t_struct;
 
 int		ft_render(int key, t_struct *data);
