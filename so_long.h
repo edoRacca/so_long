@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 11:03:10 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 11:59:49 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ int		check_rows_len(t_struct *data);
 int		check_map_values(t_struct *data);
 int		check_accessible_map(t_struct *data);
 int		check_objects(t_struct *data);
+
+void	move_right(t_struct *data);
+void	move_left(t_struct *data);
+void	move_down(t_struct *data);
+void	move_up(t_struct *data);
 
 void	fullfill_map(t_struct *data);
 void	create_imgs(t_struct *data);

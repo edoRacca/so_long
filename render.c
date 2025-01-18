@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 11:55:59 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 12:07:28 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	ft_render(int key, t_struct *data)
 		move_left(data);
 	else if (key == XK_Right || key == XK_d || key == XK_d)
 		move_right(data);
-	printf("%d\n", key);
+	print_map(data);
+	// printf("%d\n", key);
 	return (0);
 }
 
