@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/17 19:10:04 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 10:20:39 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ void	map_start(t_struct *data)
 				mlx_put_image_to_window(data->mlx, data->win, data->c_img, j * HIMG, i * WIMG);
 			j++;
 		}
+		i++;
+	}
+}
+
+void	print_map(t_struct *data)
+{
+	int	i;
+
+	i = 0;
+	while (data->map[i])
+	{
+		printf("%d %s\n", i, data->map[i]);
 		i++;
 	}
 }

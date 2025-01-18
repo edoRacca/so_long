@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/17 19:22:37 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 11:55:59 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ int	ft_render(int key, t_struct *data)
 		free_maps(data);
 		exit (0);
 	}
-	else if (key == 65362 || key == 119 || key == 113)
-	{
-		data->p_pos[1]--;
-		map_start(data);
-	}
+	else if (key == XK_Up || key == XK_w || key == XK_q)
+		move_up(data);
+	else if (key == XK_Down || key == XK_s || key == XK_z)
+		move_down(data);
+	else if (key == XK_Left || key == XK_a || key == XK_s)
+		move_left(data);
+	else if (key == XK_Right || key == XK_d || key == XK_d)
+		move_right(data);
 	printf("%d\n", key);
 	return (0);
 }

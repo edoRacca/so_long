@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/17 19:16:11 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 11:03:10 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_struct
 }				t_struct;
 
 int		ft_render(int key, t_struct *data);
+void	print_map(t_struct *data);
+int		check_file_extension(t_struct *data);
 int 	ft_cross_close(t_struct *data);
 int		map_generator(t_struct *data);
 int		alloc_map(t_struct *data);

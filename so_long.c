@@ -6,11 +6,22 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/17 19:22:07 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 11:00:37 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	check_file_extension(t_struct *data)
+{
+	char *str;
+
+	str = ft_strchr(data->map_path, '.');
+	if (str)
+		if (ft_strncmp(str, ".ber", 4) == 0)
+			return (TRUE);
+	return (FALSE);
+}
 
 // Questa funzione fa in modo che quando schiacci la croce in alto a destra
 // dell finestra la finestra si chiuda
@@ -37,7 +48,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	data.map_path = av[1];
-	if (ft_map_parsing(&data) == FALSE)
+	if (check_file_extension(&data) == FALSE || ft_map_parsing(&data) == FALSE)
 	{
 		ft_printf("Error\nInvalid map\n");
 		return (0);
@@ -45,6 +56,7 @@ int	main(int ac, char **av)
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);
+	// printf("c_flag: %d\n", data.c_flag);
 	data.win = mlx_new_window(data.mlx, WIDTH * (data.cols - 1), HEIGHT * data.rows, "GOTTA CATCH 'EM ALL");
 	map_start(&data);
 	mlx_hook(data.win, 17, 1L << 0, ft_cross_close, &data);
