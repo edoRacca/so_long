@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 18:27:36 by lparolis         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:52:03 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 /* REVIEW 
-** Questa funzione controlla in primis se le righe di tutta la matrice sono uguali
-** Poi controlla che i muri siano composti da 1
+** Questa funzione controlla in primis se le righe di tutta la matrice sono 
+** Uguali poi controlla che i muri siano composti da 1
 ** Controlla che ci siano almeno 1 C, solo 1 P e solo 1 E 
 ** Se passa tutti questi controlli la funzione restitusce TRUE(1)
-*/
+ */
 int	ft_map_parsing(t_struct *data)
 {
-	if(map_generator(data) == FALSE)
-		return(FALSE);
+	if (map_generator(data) == FALSE)
+		return (FALSE);
 	if (check_rows_len(data) == FALSE)
 		return (FALSE);
 	if (check_map_values(data) == FALSE)
@@ -42,10 +42,12 @@ int	ft_map_parsing(t_struct *data)
 	return (TRUE);
 }
 
-/* REVIEW Questa funzione controlla che tutti i muri della mappa siano composti dal valore 1
-** il numero di righe ed il numero di colonne vengono passati alla funzione come argomento
-** se la mappa non passa il controllo viene restituito FALSE = 1
-*/
+/* REVIEW 
+** Questa funzione controlla che tutti i muri della mappa siano composti 
+** dal valore 1 il numero di righe ed il numero di colonne vengono 
+** passati alla funzione come argomento se la mappa non passa il 
+** controllo viene restituito FALSE = 1
+ */
 int	wall_checker(size_t rows, size_t cols, t_struct *data)
 {
 	size_t	i;
@@ -71,13 +73,15 @@ int	wall_checker(size_t rows, size_t cols, t_struct *data)
 	return (TRUE);
 }
 
-//REVIEW - Questa funzione scannerizza la mappa e sostituisce a tutti gli 0 e lettere una X
-		//usa la ricorsione, verifica le posizioni intorno alla casella in cui si trova e
-		//se trova uno 0 oppure una lettera richiama se stessa su quella casella, se invece
-		//trova un 1 oppure una X non fa nulla se non trasformare la casella attuale in X
-
+/* REVIEW 	
+** Questa funzione scannerizza la mappa e sostituisce a tutti gli 0 e 
+** lettere una X usa la ricorsione, verifica le posizioni intorno 
+** alla casella in cui si trova e se trova uno 0 oppure una lettera 
+** richiama se stessa su quella casella, se invece trova un 1 oppure 
+** una X non fa nulla se non trasformare la casella attuale in X
+ */
 void	path_finder(t_struct *data, int x, int y)
-{ 
+{
 	if (x == data->rows || y == data->cols)
 		return ;
 	if (data->map_copy[x][y] == 'X' || data->map_copy[x][y] == '1')
@@ -92,7 +96,7 @@ void	path_finder(t_struct *data, int x, int y)
 
 int	check_rows_len(t_struct *data)
 {
-	size_t 	i;
+	size_t	i;
 
 	i = 0;
 	while (data->map[i])

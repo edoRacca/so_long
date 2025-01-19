@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:08:39 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/16 15:01:18 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:54:09 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	check_accessible_map(t_struct *data)
 
 int	check_objects(t_struct *data)
 {
-	int i;
+	int	i;
 	int	j;
 
 	data->c_flag = 0;

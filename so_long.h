@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 18:24:31 by lparolis         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:48:37 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ typedef struct s_struct
 	char	*e_img;
 	char	*c_path;
 	char	*c_img;
-	char	*w_path;
+	char	*g_path;
+	char	*g_img;
 	char	*w_img;
+	char	*w_path;
 	int		width;
 	int		height;
 	int		rows;
@@ -79,6 +81,7 @@ int		check_rows_len(t_struct *data);
 int		check_map_values(t_struct *data);
 int		check_accessible_map(t_struct *data);
 int		check_objects(t_struct *data);
+int		check_valid_img(t_struct *data);
 
 void	move_right(t_struct *data);
 void	move_left(t_struct *data);
@@ -87,6 +90,6 @@ void	move_up(t_struct *data);
 
 void	fullfill_map(t_struct *data);
 void	create_imgs(t_struct *data);
-void	map_start(t_struct *data);
+void	map_start(t_struct *data, int flag);
 
 #endif

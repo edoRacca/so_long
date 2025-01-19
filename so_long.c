@@ -3,18 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 18:29:20 by lparolis         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:59:23 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	check_valid_img(t_struct *data)
+{
+	if (!data->p_path || !data->c_path || !data->e_path || !data->g_path)
+	{
+		printf("p: %p, c: %p, e: %p, g: %p\n", data->p_img, data->c_img, data->e_img, data->g_img);
+		ft_printf("Error\nInvalid image path\n");
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
 int	check_file_extension(t_struct *data)
 {
-	char *str;
+	char	*str;
 
 	str = ft_strchr(data->map_path, '.');
 	if (str)
@@ -25,17 +36,17 @@ int	check_file_extension(t_struct *data)
 
 // Questa funzione fa in modo che quando schiacci la croce in alto a destra
 // dell finestra la finestra si chiuda
-int ft_cross_close(t_struct *data)
+int	ft_cross_close(t_struct *data)
 {
 	mlx_destroy_image(data->mlx, data->p_img);
 	mlx_destroy_image(data->mlx, data->e_img);
 	mlx_destroy_image(data->mlx, data->c_img);
-	mlx_destroy_image(data->mlx, data->w_img);
+	mlx_destroy_image(data->mlx, data->g_img);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
 	free_maps(data);
-	exit(0);	
+	exit(0);
 }
 
 int	main(int ac, char **av)
@@ -53,12 +64,14 @@ int	main(int ac, char **av)
 		ft_printf("Error\nInvalid map\n");
 		return (0);
 	}
+	if (check_valid_img(&data) == FALSE)
+		return (0);
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);
-	// printf("c_flag: %d\n", data.c_flag);
-	data.win = mlx_new_window(data.mlx, WIDTH * (data.cols - 1), HEIGHT * data.rows, "GOTTA CATCH 'EM ALL");
-	map_start(&data);
+	data.win = mlx_new_window(data.mlx, WIDTH * (data.cols - 1), \
+						HEIGHT * data.rows, "GOTTA CATCH 'EM ALL");
+	map_start(&data, TRUE);
 	mlx_hook(data.win, 17, 1L << 0, ft_cross_close, &data);
 	mlx_hook(data.win, 2, 1L << 0, ft_render, &data);
 	mlx_loop(data.mlx);

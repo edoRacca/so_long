@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/17 12:52:55 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:54:09 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	get_img_path(t_struct *data)
 	else
 		data->e_path = "textures/pokeball48_right.xpm";
 	data->p_path = "textures/slowbro48_right.xpm";
-	data->w_path = "textures/grass.xpm";
+	data->g_path = "textures/grass.xpm";
 }
 
-// Una funzione che usando gnl si crea un array di puntatori contenente la  mappa
-// (contenuto all'interno della solita struttura "data")
-// alloca anche lo spazio per ogni stringa prima di assegnarla, usando calloc per
-// evitare problemi di terminazione con carattere nullo o leak
+/* NOTE
+** Una funzione che usa gnl e crea una matrice contenente la mappa.
+** Alloca anche lo spazio per ogni stringa prima di assegnarla per
+** evitare problemi di terminazione con carattere nullo
+*/
 int	map_generator(t_struct *data)
 {
 	int		fd;
@@ -42,7 +43,7 @@ int	map_generator(t_struct *data)
 	while (line)
 	{
 		data->map[i] = ft_strdup(line);
-		if (ft_strchr(line, '\n'))	
+		if (ft_strchr(line, '\n'))
 			data->map[i][ft_strlen(line) - 1] = '\0';
 		if (line)
 			free(line);
@@ -82,9 +83,9 @@ int	alloc_map(t_struct *data)
 	return (TRUE);
 }
 
-// Questa funzione mi va a dichiarare la copia della mappa nella struttura "data"
-// il puntatore principale di map_copy e' gia' stato creato in map map_generator
-// questa funzione va solo ad inizializzare i puntatori delle righe
+/* NOTE
+** Questa funzione dichiara la copia della mappa nella struttura "data"
+*/
 void	map_copy(t_struct *data)
 {
 	int	i;

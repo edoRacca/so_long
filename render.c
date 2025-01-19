@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 16:04:52 by lparolis         ###   ########.fr       */
+/*   Updated: 2025/01/19 11:54:18 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	ft_render(int key, t_struct *data)
 {
@@ -20,7 +19,7 @@ int	ft_render(int key, t_struct *data)
 		mlx_destroy_image(data->mlx, data->p_img);
 		mlx_destroy_image(data->mlx, data->e_img);
 		mlx_destroy_image(data->mlx, data->c_img);
-		mlx_destroy_image(data->mlx, data->w_img);
+		mlx_destroy_image(data->mlx, data->g_img);
 		mlx_destroy_window(data->mlx, data->win);
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
@@ -35,8 +34,5 @@ int	ft_render(int key, t_struct *data)
 		move_left(data);
 	else if (key == XK_Right || key == XK_d || key == XK_d)
 		move_right(data);
-	print_map(data);
-	// printf("%d\n", key);
 	return (0);
 }
-

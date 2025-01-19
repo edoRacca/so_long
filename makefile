@@ -19,7 +19,7 @@ run: re
 	clear && ./so_long maps/map.ber
 
 valgrind: re
-	clear && valgrind --leak-check=full -s ./so_long maps/map.ber
+	clear && valgrind --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./so_long maps/map.ber
 
 $(NAME): $(OBJ) $(GNL_OBJ)
 	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
