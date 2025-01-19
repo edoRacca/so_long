@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 11:59:23 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:59:19 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	check_valid_img(t_struct *data)
 {
 	if (!data->p_path || !data->c_path || !data->e_path || !data->g_path)
 	{
-		printf("p: %p, c: %p, e: %p, g: %p\n", data->p_img, data->c_img, data->e_img, data->g_img);
 		ft_printf("Error\nInvalid image path\n");
 		return (FALSE);
 	}
@@ -42,6 +41,7 @@ int	ft_cross_close(t_struct *data)
 	mlx_destroy_image(data->mlx, data->e_img);
 	mlx_destroy_image(data->mlx, data->c_img);
 	mlx_destroy_image(data->mlx, data->g_img);
+	mlx_destroy_image(data->mlx, data->w_img);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

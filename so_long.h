@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 11:48:37 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:56:28 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@
 # define FALSE 0
 # define ROW 1
 # define COL 0
+
+# define CPATH "textures/masterball_ground.xpm"
+# define PPATH_L "textures/Garchomp_left_ground.xpm"
+# define PPATH_R "textures/Garchomp_right_ground.xpm"
+# define PPATH_U "textures/Garchomp_up_ground.xpm"
+# define PPATH_D "textures/Garchomp_down_ground.xpm"
+# define EPATH_R "textures/pokeball48_right.xpm"
+# define EPATH_L "textures/pokeball48_left.xpm"
+# define GPATH "textures/grass2.xpm"
+# define WPATH "textures/tree_wall_ground.xpm"
 
 # include "./minilibx-linux/mlx.h"
 # include "ft_printf/ft_printf.h"
@@ -62,13 +72,14 @@ typedef struct s_struct
 	int		moves;
 }				t_struct;
 
+void	create_player(t_struct *data);
 int		ft_render(int key, t_struct *data);
 void	print_map(t_struct *data);
 int		check_file_extension(t_struct *data);
 int 	ft_cross_close(t_struct *data);
 int		map_generator(t_struct *data);
 int		alloc_map(t_struct *data);
-void	get_img_path(t_struct *data);
+void	get_img_path(t_struct *data, int key);
 int		map_generator(t_struct *data);
 int		wall_checker(size_t rows, size_t cols, t_struct *data);
 int		ft_map_parsing(t_struct *data);
@@ -83,10 +94,10 @@ int		check_accessible_map(t_struct *data);
 int		check_objects(t_struct *data);
 int		check_valid_img(t_struct *data);
 
-void	move_right(t_struct *data);
-void	move_left(t_struct *data);
-void	move_down(t_struct *data);
-void	move_up(t_struct *data);
+void	move_right(t_struct *data, int key);
+void	move_left(t_struct *data, int key);
+void	move_down(t_struct *data, int key);
+void	move_up(t_struct *data, int key);
 
 void	fullfill_map(t_struct *data);
 void	create_imgs(t_struct *data);

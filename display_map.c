@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 11:52:20 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 17:03:53 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	create_imgs(t_struct *data)
 {
 	data->width = WIMG;
 	data->height = HIMG;
+	data->w_img = mlx_xpm_file_to_image(data->mlx, data->w_path, \
+					&data->width, &data->height);
 	data->p_img = mlx_xpm_file_to_image(data->mlx, data->p_path, \
 					&data->width, &data->height);
 	data->e_img = mlx_xpm_file_to_image(data->mlx, data->e_path, \
@@ -40,6 +42,9 @@ void	fullfill_map(t_struct *data)
 			if (data->map[i][j] != '1')
 				mlx_put_image_to_window(data->mlx, data->win, data->g_img, \
 				j * WIMG, i * HIMG);
+			else
+				mlx_put_image_to_window(data->mlx, data->win, data->w_img, \
+				j * WIMG, i * HIMG);
 			j++;
 		}
 		i++;
@@ -53,11 +58,13 @@ void	map_start(t_struct *data, int flag)
 
 	if (flag == TRUE)
 		create_imgs(data);
+	else if (flag != FALSE)
+		create_player(data);
 	fullfill_map(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->p_img, \
 	data->p_pos[0] * HIMG, data->p_pos[1] * WIMG);
-	i = 0;
-	while (data->map[i])
+	i = -1;
+	while (data->map[++i])
 	{
 		j = 0;
 		while (data->map[i][j])
@@ -70,7 +77,6 @@ void	map_start(t_struct *data, int flag)
 				data->e_pos[0] * HIMG, data->e_pos[1] * WIMG);
 			j++;
 		}
-		i++;
 	}
 }
 

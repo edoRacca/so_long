@@ -6,21 +6,29 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 12:52:45 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:55:03 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	get_img_path(t_struct *data)
+void	get_img_path(t_struct *data, int key)
 {
-	data->c_path = "textures/masterball48_2.xpm";
+	data->c_path = CPATH;
+	data->w_path = WPATH;
 	if (data->e_pos[0] <= data->cols / 2)
-		data->e_path = "textures/pokeball48_left.xpm";
+		data->e_path = EPATH_L;
 	else
-		data->e_path = "textures/pokeball48_right.xpm";
-	data->p_path = "textures/slowbro48_right.xpm";
-	data->g_path = "textures/grass2.xpm";
+		data->e_path = EPATH_R;
+	if (key == XK_Up || key == XK_w || key == XK_q)
+		data->p_path = PPATH_U;
+	else if (key == XK_Left || key == XK_a || key == XK_s)
+		data->p_path = PPATH_L;
+	else if (key == XK_Right || key == XK_d || key == XK_d)
+		data->p_path = PPATH_R;
+	else
+		data->p_path = PPATH_D;
+	data->g_path = GPATH;
 }
 
 /* NOTE
