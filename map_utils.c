@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 11:54:09 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 12:52:45 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	get_img_path(t_struct *data)
 	else
 		data->e_path = "textures/pokeball48_right.xpm";
 	data->p_path = "textures/slowbro48_right.xpm";
-	data->g_path = "textures/grass.xpm";
+	data->g_path = "textures/grass2.xpm";
 }
 
 /* NOTE
