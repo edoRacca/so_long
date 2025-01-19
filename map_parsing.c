@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parsing.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 10:56:26 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:27:36 by lparolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	ft_map_parsing(t_struct *data)
 	path_finder(data, data->p_pos[1], data->p_pos[0]);
 	if (check_accessible_map(data) == FALSE)
 		return (free_maps(data), FALSE);
+	data->moves = 0;
+	data->temp_flag = 0;
+	data->exit_flag = 0;
 	return (TRUE);
 }
 

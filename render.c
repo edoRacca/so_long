@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lparolis <lparolis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/18 12:07:28 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/18 16:04:52 by lparolis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// Questa funzione fa in modo che premendo il tasto esc la finestra
-// si chiuda
+
 int	ft_render(int key, t_struct *data)
 {
 	if (key == 65307)
