@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:55:35 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 15:31:25 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/19 18:07:12 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	move_right(t_struct *data, int key)
 		data->p_pos[COL] - 1 == data->e_pos[COL])
 		data->map[data->p_pos[ROW]][data->p_pos[COL] - 1] = 'E';
 	data->moves++;
-	ft_printf("Moves count: %d\n", data->moves);
+	ft_printf("Steps: %d\n", data->moves);
 	map_start(data, 2);
 }
 
@@ -52,7 +52,7 @@ void	move_left(t_struct *data, int key)
 		data->p_pos[COL] + 1 == data->e_pos[COL])
 		data->map[data->p_pos[ROW]][data->p_pos[COL] + 1] = 'E';
 	data->moves++;
-	ft_printf("Moves count: %d\n", data->moves);
+	ft_printf("Steps: %d\n", data->moves);
 	map_start(data, 2);
 }
 
@@ -74,7 +74,7 @@ void	move_down(t_struct *data, int key)
 		data->p_pos[COL] == data->e_pos[COL])
 		data->map[data->p_pos[ROW] - 1][data->p_pos[COL]] = 'E';
 	data->moves++;
-	ft_printf("Moves count: %d\n", data->moves);
+	ft_printf("Steps: %d\n", data->moves);
 	map_start(data, 2);
 }
 
@@ -96,6 +96,6 @@ void	move_up(t_struct *data, int key)
 		data->p_pos[COL] == data->e_pos[COL])
 		data->map[data->p_pos[ROW] + 1][data->p_pos[COL]] = 'E';
 	data->moves++;
-	ft_printf("Moves count: %d\n", data->moves);
+	ft_printf("Steps: %d\n", data->moves);
 	map_start(data, 2);
 }

@@ -1,13 +1,15 @@
 NAME = so_long
 
-SRC = $(addsuffix .c, so_long render map_parsing map_utils map_checker display_map move_functions)
+SRC = $(addsuffix .c, so_long render map_parsing map_utils map_checker display_map move_functions display_steps_bonus)
 GNL_SRC = $(addprefix get_next_line/, get_next_line.c)
+
 
 PRINTFLIB = ft_printf/libftprintf.a
 PRINTFDIR = ft_printf
 LIBS = -Lminilibx-linux -lmlx -lXext -lX11
 
 OBJ := $(SRC:%.c=%.o)
+BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
 GNL_OBJ := $(GNL_SRC:%.c=%.o)
 
 CC = cc
@@ -37,13 +39,13 @@ minilibx:
 
 clean:
 	@echo Cleaning object_files...
-	@rm -f $(OBJ) $(GNL_OBJ)
+	@rm -f $(OBJ) $(GNL_OBJ) $(BONUS_OBJ)
 	@make clean -C $(PRINTFDIR)
 
 fclean: clean
 	@make clean -C minilibx-linux
 	@make fclean -C $(PRINTFDIR)
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
 
 re : fclean all
 
