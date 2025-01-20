@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:55:35 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/19 18:07:12 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:21:27 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	move_up(t_struct *data, int key)
 	if (data->map[data->p_pos[ROW] - 1][data->p_pos[COL]] == 'E' \
 		&& data->c_flag == 0)
 		ft_cross_close(data);
-	data->map[data->p_pos[ROW] - 1][data->p_pos[ROW]] = '0';
+	data->map[data->p_pos[ROW] - 1][data->p_pos[COL]] = '0';
 	data->p_pos[ROW]--;
 	data->map[data->p_pos[ROW]][data->p_pos[COL]] = 'P';
 	data->map[data->p_pos[ROW] + 1][data->p_pos[COL]] = '0';
