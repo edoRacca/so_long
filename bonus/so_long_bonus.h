@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:20:27 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:19:16 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define EPATH_L "textures/pokeball48_left.xpm"
 # define GPATH "textures/grass2.xpm"
 # define WPATH "textures/tree_wall_ground.xpm"
-# define STEPSPATH "textures/Steps.xpm"
+# define STEPSPATH "textures/steps.xpm"
 
 # include "../minilibx-linux/mlx.h"
 # include "../ft_printf/ft_printf.h"

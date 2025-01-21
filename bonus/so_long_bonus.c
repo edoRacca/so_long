@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:17:00 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:23:11 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	ft_cross_close(t_struct *data)
 	mlx_destroy_image(data->mlx, data->c_img);
 	mlx_destroy_image(data->mlx, data->g_img);
 	mlx_destroy_image(data->mlx, data->w_img);
+	mlx_destroy_image(data->mlx, data->steps_img);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);

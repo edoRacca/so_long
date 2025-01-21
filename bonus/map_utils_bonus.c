@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:16:52 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:19:48 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	get_img_path(t_struct *data, int key)
 	else
 		data->p_path = PPATH_D;
 	data->g_path = GPATH;
+	data->steps_path = STEPSPATH;
 }
 
 /* NOTE

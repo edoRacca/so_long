@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:16:39 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:31:58 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	create_imgs(t_struct *data)
 {
+	int	w_stepsbg;
+	int	h_stepsbg;
+
 	data->width = WIMG;
 	data->height = HIMG;
+	w_stepsbg = 90;
+	h_stepsbg = 20;
 	data->w_img = mlx_xpm_file_to_image(data->mlx, data->w_path, \
 					&data->width, &data->height);
 	data->p_img = mlx_xpm_file_to_image(data->mlx, data->p_path, \
@@ -26,6 +31,8 @@ void	create_imgs(t_struct *data)
 					&data->width, &data->height);
 	data->g_img = mlx_xpm_file_to_image(data->mlx, data->g_path, \
 					&data->width, &data->height);
+	data->steps_img = mlx_xpm_file_to_image(data->mlx, data->steps_path, \
+					&w_stepsbg, &h_stepsbg);
 }
 
 void	fullfill_map(t_struct *data)
@@ -56,15 +63,16 @@ void	fillmap_function(t_struct *data, int flag)
 	char	*steps;
 
 	if (flag == TRUE)
-		create_imgs(data);
+		create_imgs(data);	
 	else if (flag != FALSE)
 		create_player(data);
 	fullfill_map(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->p_img, \
 	data->p_pos[0] * HIMG, data->p_pos[1] * WIMG);
-	mlx_string_put(data->mlx, data->win, 10, 10, create_trgb(255, 255, 255, 255), "Steps: ");
+	mlx_put_image_to_window(data->mlx, data->win, data->steps_img, 0, 0);
+	mlx_string_put(data->mlx, data->win, 8, 14, create_trgb(255, 255, 255, 255), "Steps: ");
 	steps = ft_itoa(data->moves);
-	mlx_string_put(data->mlx, data->win, 60, 10, create_trgb(255, 255, 255, 255), steps);
+	mlx_string_put(data->mlx, data->win, 50, 14, create_trgb(255, 255, 255, 255), steps);
 	free(steps);
 }
 
