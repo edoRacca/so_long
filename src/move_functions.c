@@ -6,13 +6,10 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:55:35 by edraccan          #+#    #+#             */
-<<<<<<< HEAD:src/move_functions.c
-/*   Updated: 2025/01/20 18:18:18 by edraccan         ###   ########.fr       */
-=======
-/*   Updated: 2025/01/20 12:21:27 by edraccan         ###   ########.fr       */
->>>>>>> 4275c7d14e374c78db68bc67e79613b3465e02ec:move_functions.c
+/*   Updated: 2025/01/21 10:56:33 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "so_long.h"
 

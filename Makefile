@@ -1,22 +1,22 @@
-NAME = so_long
+NAME= so_long
 
 SRCDIR = src/
 SRC = $(addsuffix .c, so_long render map_parsing map_utils map_checker display_map move_functions)
 
 BONUSDIR = bonus/
-BONUSSRC = $(addsuffix .c, so_long_bonus render_bonus map_parsing_bonus map_utils_bonus map_checker_bonus display_map_bonus move_functions_bonus)
+BONUSSRC = $(addsuffix .c, render_bonus so_long_bonus map_parsing_bonus map_utils_bonus map_checker_bonus display_map_bonus move_functions_bonus)
 
 GNL_SRC = $(addprefix get_next_line/, get_next_line.c)
 
 SRCS = $(addprefix $(SRCDIR), $(SRC))
-BONUS = $(addprefix $(BONUSDIR), $(BONUSSRC))
+BSRCS = $(addprefix $(BONUSDIR), $(BONUSSRC))
 
 PRINTFLIB = ft_printf/libftprintf.a
 PRINTFDIR = ft_printf
 LIBS = -Lminilibx-linux -lmlx -lXext -lX11
 
 OBJ := $(SRCS:%.c=%.o)
-BONUS_OBJ := $(BONUSSRC/BONUSSRC:%.c=%.o)
+BONUS_OBJ := $(BSRCS:%.c=%.o)
 GNL_OBJ := $(GNL_SRC:%.c=%.o)
 
 CC = cc
@@ -30,16 +30,16 @@ run: re
 valgrind: re
 	clear && valgrind --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./so_long maps/map.ber
 
-bonus: re minilibx printf $(BONUS)
+bonus: minilibx printf b
+
+b: $(BONUS_OBJ) $(GNL_OBJ)
+	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
 
 $(NAME): $(OBJ) $(GNL_OBJ)
 	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
 
-$(BONUS): $(BONUS_OBJ) $(GNL_OBJ)
-	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
-
 %.o: %.c
-	gcc $(CCFLAGS) -Iincludes -c $< -o $@
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 printf:
 	@echo Compiling ft_printf...
@@ -61,4 +61,4 @@ fclean: clean
 
 re : fclean all
 
-.PHONY: all run valgrind printf minilibx clean fclean re
+.PHONY: all run valgrind bonus printf minilibx clean fclean re
