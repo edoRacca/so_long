@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 17:27:04 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 14:23:31 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:03:46 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,14 @@ void	create_player(t_struct *data)
 int	ft_render(int key, t_struct *data)
 {
 	if (key == 65307)
-	{
-		mlx_destroy_image(data->mlx, data->p_img);
-		mlx_destroy_image(data->mlx, data->e_img);
-		mlx_destroy_image(data->mlx, data->c_img);
-		mlx_destroy_image(data->mlx, data->g_img);
-		mlx_destroy_image(data->mlx, data->w_img);
-		mlx_destroy_image(data->mlx, data->steps_img);
-		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_display(data->mlx);
-		free(data->mlx);
-		free_maps(data);
-		exit (0);
-	}
-	else if (key == XK_Up || key == XK_w || key == XK_q)
+		ft_cross_close(data);
+	else if (key == XK_Up || key == XK_w)
 		move_up(data, key);
-	else if (key == XK_Down || key == XK_s || key == XK_z)
+	else if (key == XK_Down || key == XK_s)
 		move_down(data, key);
-	else if (key == XK_Left || key == XK_a || key == XK_s)
+	else if (key == XK_Left || key == XK_a)
 		move_left(data, key);
-	else if (key == XK_Right || key == XK_d || key == XK_d)
+	else if (key == XK_Right || key == XK_d)
 		move_right(data, key);
 	return (0);
 }

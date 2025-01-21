@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 11:55:35 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:16:55 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:55:35 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	move_right(t_struct *data, int key)
 	if (data->map[data->p_pos[ROW]][data->p_pos[COL] + 1] == 'E' \
 		&& data->c_flag == 0)
 		ft_cross_close(data);
+	if (data->map[data->p_pos[ROW]][data->p_pos[COL] + 1] == 'N')
+	{
+		ft_printf("Ops, you died!\n");
+		ft_cross_close(data);
+	}
 	if (data->map[data->p_pos[ROW]][data->p_pos[COL] + 1] == 'C')
 		data->c_flag--;
 	data->map[data->p_pos[ROW]][data->p_pos[COL] + 1] = '0';
@@ -44,6 +49,11 @@ void	move_left(t_struct *data, int key)
 	if (data->map[data->p_pos[ROW]][data->p_pos[COL] - 1] == 'E' \
 		&& data->c_flag == 0)
 		ft_cross_close(data);
+	if (data->map[data->p_pos[ROW]][data->p_pos[COL] - 1] == 'N')
+	{
+		ft_printf("Ops, you died!\n");
+		ft_cross_close(data);
+	}
 	data->map[data->p_pos[ROW]][data->p_pos[COL] - 1] = '0';
 	data->p_pos[COL]--;
 	data->map[data->p_pos[ROW]][data->p_pos[COL]] = 'P';
@@ -66,6 +76,11 @@ void	move_down(t_struct *data, int key)
 	if (data->map[data->p_pos[ROW] + 1][data->p_pos[COL]] == 'E' \
 		&& data->c_flag == 0)
 		ft_cross_close(data);
+	if (data->map[data->p_pos[ROW] + 1][data->p_pos[COL]] == 'N')
+	{
+		ft_printf("Ops, you died!\n");
+		ft_cross_close(data);
+	}
 	data->map[data->p_pos[ROW] + 1][data->p_pos[COL]] = '0';
 	data->p_pos[ROW]++;
 	data->map[data->p_pos[ROW]][data->p_pos[COL]] = 'P';
@@ -88,6 +103,11 @@ void	move_up(t_struct *data, int key)
 	if (data->map[data->p_pos[ROW] - 1][data->p_pos[COL]] == 'E' \
 		&& data->c_flag == 0)
 		ft_cross_close(data);
+	if (data->map[data->p_pos[ROW] - 1][data->p_pos[COL]] == 'N')
+	{
+		ft_printf("Ops, you died!\n");
+		ft_cross_close(data);
+	}
 	data->map[data->p_pos[ROW] - 1][data->p_pos[COL]] = '0';
 	data->p_pos[ROW]--;
 	data->map[data->p_pos[ROW]][data->p_pos[COL]] = 'P';

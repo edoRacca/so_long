@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 14:19:48 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:29:53 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@ void	get_img_path(t_struct *data, int key)
 		data->e_path = EPATH_L;
 	else
 		data->e_path = EPATH_R;
-	if (key == XK_Up || key == XK_w || key == XK_q)
+	if (key == XK_Up || key == XK_w)
 		data->p_path = PPATH_U;
-	else if (key == XK_Left || key == XK_a || key == XK_s)
+	else if (key == XK_Left || key == XK_a)
 		data->p_path = PPATH_L;
-	else if (key == XK_Right || key == XK_d || key == XK_d)
+	else if (key == XK_Right || key == XK_d)
 		data->p_path = PPATH_R;
 	else
 		data->p_path = PPATH_D;
 	data->g_path = GPATH;
+	data->enemy_path = ENEMYPATH1;
 	data->steps_path = STEPSPATH;
 }
 

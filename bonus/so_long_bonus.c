@@ -6,27 +6,11 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 14:23:11 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:02:55 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
-
-int	create_trgb(int t, int r, int g, int b)
-{
-	return (t << 24 | r << 16 | g << 8 | b);
-}
-
-int	check_file_extension(t_struct *data)
-{
-	char	*str;
-
-	str = ft_strchr(data->map_path, '.');
-	if (str)
-		if (ft_strncmp(str, ".ber", 4) == 0)
-			return (TRUE);
-	return (FALSE);
-}
 
 // Questa funzione fa in modo che quando schiacci la croce in alto a destra
 // dell finestra la finestra si chiuda
@@ -38,6 +22,7 @@ int	ft_cross_close(t_struct *data)
 	mlx_destroy_image(data->mlx, data->g_img);
 	mlx_destroy_image(data->mlx, data->w_img);
 	mlx_destroy_image(data->mlx, data->steps_img);
+	mlx_destroy_image(data->mlx, data->enemy_img);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);
 	free(data->mlx);
@@ -54,6 +39,8 @@ int	main(int ac, char **av)
 	data.map_path = av[1];
 	if (check_file_extension(&data) == FALSE || ft_map_parsing(&data) == FALSE)
 		return(ft_printf("Error\nInvalid map\n"), 0);
+	if (WIDTH * (data.cols - 1) > 1920 || HEIGHT * data.rows > 1080)
+		return(ft_printf("Error\nMap is too big (max %d x %d)\n", 1920/WIDTH, 1080/HEIGHT), 0);
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);
@@ -62,5 +49,6 @@ int	main(int ac, char **av)
 	map_start(&data, TRUE);
 	mlx_hook(data.win, 17, 1L << 0, ft_cross_close, &data);
 	mlx_hook(data.win, 2, 1L << 0, ft_render, &data);
+	mlx_loop_hook(data.mlx, animate_sprites, &data);
 	mlx_loop(data.mlx);
 }

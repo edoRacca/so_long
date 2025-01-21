@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 14:19:16 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:05:22 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@
 # define EPATH_L "textures/pokeball48_left.xpm"
 # define GPATH "textures/grass2.xpm"
 # define WPATH "textures/tree_wall_ground.xpm"
+# define ENEMYPATH1 "textures/Articuno_bg1.xpm"
+# define ENEMYPATH2 "textures/Articuno_bg2.xpm"
+# define ENEMYPATH3 "textures/Articuno_bg3.xpm"
 # define STEPSPATH "textures/steps.xpm"
 
 # include "../minilibx-linux/mlx.h"
@@ -59,6 +62,8 @@ typedef struct s_struct
 	char	*g_img;
 	char	*w_path;
 	char	*w_img;
+	char	*enemy_path;
+	char	*enemy_img;
 	char	*steps_path;
 	char	*steps_img;
 	int		width;
@@ -106,5 +111,7 @@ void	fullfill_map(t_struct *data);
 void	create_imgs(t_struct *data);
 void	map_start(t_struct *data, int flag);
 
+// enemy_animation_bonus.c
+int	animate_sprites(t_struct *data);
 
 #endif

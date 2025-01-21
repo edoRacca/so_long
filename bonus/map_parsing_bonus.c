@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 23:20:52 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:16:49 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:44:43 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	path_finder(t_struct *data, int x, int y)
 {
 	if (x == data->rows || y == data->cols)
 		return ;
-	if (data->map_copy[x][y] == 'X' || data->map_copy[x][y] == '1')
+	if (data->map_copy[x][y] == 'X' || data->map_copy[x][y] == '1' || \
+		data->map[x][y] == 'N')
 		return ;
 	data->map_copy[x][y] = 'X';
 	path_finder(data, x + 1, y);
@@ -121,7 +122,7 @@ int	check_map_values(t_struct *data)
 		{
 			if (data->map[i][j] != 'E' && data->map[i][j] != 'P' && \
 			data->map[i][j] != 'C' && data->map[i][j] != '0' && \
-			data->map[i][j] != '1')
+			data->map[i][j] != '1' && data->map[i][j] != 'N')
 				return (FALSE);
 			j++;
 		}

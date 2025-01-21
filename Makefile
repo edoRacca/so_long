@@ -4,7 +4,8 @@ SRCDIR = src/
 SRC = $(addsuffix .c, so_long render map_parsing map_utils map_checker display_map move_functions)
 
 BONUSDIR = bonus/
-BONUSSRC = $(addsuffix .c, render_bonus so_long_bonus map_parsing_bonus map_utils_bonus map_checker_bonus display_map_bonus move_functions_bonus)
+BONUSSRC = $(addsuffix .c, render_bonus so_long_bonus map_parsing_bonus map_utils_bonus map_checker_bonus \
+		display_map_bonus move_functions_bonus so_long_utils_bonus enemy_animation_bonus)
 
 GNL_SRC = $(addprefix get_next_line/, get_next_line.c)
 

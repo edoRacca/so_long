@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 14:31:58 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/21 17:28:38 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	create_imgs(t_struct *data)
 	data->c_img = mlx_xpm_file_to_image(data->mlx, data->c_path, \
 					&data->width, &data->height);
 	data->g_img = mlx_xpm_file_to_image(data->mlx, data->g_path, \
+					&data->width, &data->height);
+	data->enemy_img = mlx_xpm_file_to_image(data->mlx, data->enemy_path, \
 					&data->width, &data->height);
 	data->steps_img = mlx_xpm_file_to_image(data->mlx, data->steps_path, \
 					&w_stepsbg, &h_stepsbg);
@@ -94,6 +96,9 @@ void	map_start(t_struct *data, int flag)
 			if (data->map[i][j] == 'E')
 				mlx_put_image_to_window(data->mlx, data->win, data->e_img, \
 				data->e_pos[0] * HIMG, data->e_pos[1] * WIMG);
+			if (data->map[i][j] == 'N')
+				mlx_put_image_to_window(data->mlx, data->win, data->enemy_img, \
+				j * HIMG, i * WIMG);
 		}
 	}
 }
