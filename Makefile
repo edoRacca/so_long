@@ -31,7 +31,7 @@ run: re
 valgrind: re
 	clear && valgrind --leak-check=full --show-leak-kinds=all -s --track-origins=yes ./so_long maps/map.ber
 
-bonus: minilibx printf b
+bonus: fclean minilibx printf b
 
 b: $(BONUS_OBJ) $(GNL_OBJ)
 	$(CC) $(CCFLAGS) $^ $(PRINTFLIB) $(LIBS) -o $(NAME)
