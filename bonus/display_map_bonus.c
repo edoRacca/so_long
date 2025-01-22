@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 17:28:38 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:35:26 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	fillmap_function(t_struct *data, int flag)
 	char	*steps;
 
 	if (flag == TRUE)
-		create_imgs(data);	
+		create_imgs(data);
 	else if (flag != FALSE)
 		create_player(data);
 	fullfill_map(data);

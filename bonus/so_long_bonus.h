@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 17:05:22 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:47:12 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		ft_render(int key, t_struct *data);
 void	print_map(t_struct *data);
 int		create_trgb(int t, int r, int g, int b);
 int		check_file_extension(t_struct *data);
-int 	ft_cross_close(t_struct *data);
+int		ft_cross_close(t_struct *data);
 int		map_generator(t_struct *data);
 int		alloc_map(t_struct *data);
 void	get_img_path(t_struct *data, int key);

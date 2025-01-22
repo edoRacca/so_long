@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:33:13 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 17:29:53 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:28:40 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int	map_generator(t_struct *data)
 		i++;
 	}
 	map_copy(data);
+	close(fd);
 	return (TRUE);
 }
 
@@ -90,6 +91,7 @@ int	alloc_map(t_struct *data)
 	data->map_copy = ft_calloc(((data->rows * data->cols) + 1), sizeof(char *));
 	data->map[data->rows] = NULL;
 	data->map_copy[data->rows] = NULL;
+	close(fd);
 	return (TRUE);
 }
 

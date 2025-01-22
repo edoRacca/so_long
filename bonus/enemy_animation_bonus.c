@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 16:01:26 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/21 17:52:06 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:18:49 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,25 @@ int	animate_sprites(t_struct *data)
 {
 	static int	i;
 
-	if (i < 40)
+	if (i < 350)
 	{
 		data->enemy_path = ENEMYPATH1;
 		create_enemy(data);
 		display_enemy(data);
 	}
-	else if (i > 40 && i < 80)
+	else if (i > 350 && i < 700)
 	{
 		data->enemy_path = ENEMYPATH2;
 		create_enemy(data);
 		display_enemy(data);
 	}
-	else if (i > 80 && i < 120)
+	else if (i > 700 && i < 1050)
 	{
 		data->enemy_path = ENEMYPATH3;
 		create_enemy(data);
 		display_enemy(data);
 	}
-	else if (i > 120)
+	else if (i > 1050)
 		i = 0;
 	i++;
 	return (0);
