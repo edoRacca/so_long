@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/24 10:51:36 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:16:59 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 		return (ft_printf("Error\nInvalid arguments.\n"), 0);
 	data.map_path = av[1];
 	if (check_file_extension(&data) == FALSE || ft_map_parsing(&data) == FALSE)
-		return(ft_printf("Error\nInvalid map\n"), 0);
+		return (ft_printf("Error\nInvalid map\n"), 0);
 	data.mlx = mlx_init();
 	if (data.mlx == NULL)
 		return (MALLOC_ERROR);

@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 11:38:08 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/22 17:35:26 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:14:49 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,11 @@ void	fillmap_function(t_struct *data, int flag)
 	mlx_put_image_to_window(data->mlx, data->win, data->p_img, \
 	data->p_pos[0] * HIMG, data->p_pos[1] * WIMG);
 	mlx_put_image_to_window(data->mlx, data->win, data->steps_img, 0, 0);
-	mlx_string_put(data->mlx, data->win, 8, 14, create_trgb(255, 255, 255, 255), "Steps: ");
+	mlx_string_put(data->mlx, data->win, 8, 14, \
+		create_trgb(255, 255, 255, 255), "Steps: ");
 	steps = ft_itoa(data->moves);
-	mlx_string_put(data->mlx, data->win, 50, 14, create_trgb(255, 255, 255, 255), steps);
+	mlx_string_put(data->mlx, data->win, 50, 14, \
+		create_trgb(255, 255, 255, 255), steps);
 	free(steps);
 }
 

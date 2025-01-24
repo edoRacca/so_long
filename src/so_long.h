@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/24 11:06:49 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:38:24 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,36 +84,45 @@ typedef struct s_struct
 	int		moves;
 }				t_struct;
 
+// so_long.c
+int		check_file_extension(t_struct *data);
+int		ft_cross_close(t_struct *data);
+
+// render.c
 void	create_player(t_struct *data);
 int		ft_render(int key, t_struct *data);
-void	print_map(t_struct *data);
-int		create_trgb(int t, int r, int g, int b);
-int		check_file_extension(t_struct *data);
-int 	ft_cross_close(t_struct *data);
-int		map_generator(t_struct *data);
-int		alloc_map(t_struct *data);
+
+// map_utils.c
 void	get_img_path(t_struct *data, int key);
 int		map_generator(t_struct *data);
-int		wall_checker(size_t rows, size_t cols, t_struct *data);
-int		ft_map_parsing(t_struct *data);
+int		alloc_map(t_struct *data);
 void	free_maps(t_struct	*data);
 void	map_copy(t_struct *data);
-void	exit_finder(t_struct *data);
-void	player_finder(t_struct *data);
+
+// map_parsing.c
+int		wall_checker(size_t rows, size_t cols, t_struct *data);
+int		ft_map_parsing(t_struct *data);
 void	path_finder(t_struct *data, int x, int y);
 int		check_rows_len(t_struct *data);
 int		check_map_values(t_struct *data);
+
+// map_checker.c
+void	exit_finder(t_struct *data);
+void	player_finder(t_struct *data);
 int		check_accessible_map(t_struct *data);
 int		check_objects(t_struct *data);
 
+// display_map.c
+void	create_imgs(t_struct *data);
+void	fullfill_map(t_struct *data);
+void	fillmap_function(t_struct *data, int flag);
+void	map_start(t_struct *data, int flag);
+void	print_map(t_struct *data);
+
+// move_functions.c
 void	move_right(t_struct *data, int key);
 void	move_left(t_struct *data, int key);
 void	move_down(t_struct *data, int key);
 void	move_up(t_struct *data, int key);
-
-void	fullfill_map(t_struct *data);
-void	create_imgs(t_struct *data);
-void	map_start(t_struct *data, int flag);
-
 
 #endif

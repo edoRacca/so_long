@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/24 11:07:08 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:38:03 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,38 +89,56 @@ typedef struct s_struct
 	int		moves;
 }				t_struct;
 
+// so_long_bonus.c
+int		ft_cross_close(t_struct *data);
+
+// render_bonus.c
 void	create_player(t_struct *data);
 int		ft_render(int key, t_struct *data);
-void	print_map(t_struct *data);
-int		create_trgb(int t, int r, int g, int b);
-int		check_file_extension(t_struct *data);
-int		ft_cross_close(t_struct *data);
-int		map_generator(t_struct *data);
-int		alloc_map(t_struct *data);
-void	get_img_path(t_struct *data, int key);
-int		map_generator(t_struct *data);
-int		wall_checker(size_t rows, size_t cols, t_struct *data);
-int		ft_map_parsing(t_struct *data);
-void	free_maps(t_struct	*data);
-void	map_copy(t_struct *data);
-void	exit_finder(t_struct *data);
-void	player_finder(t_struct *data);
-void	path_finder(t_struct *data, int x, int y);
-int		check_rows_len(t_struct *data);
-int		check_map_values(t_struct *data);
-int		check_accessible_map(t_struct *data);
-int		check_objects(t_struct *data);
 
+// move_functions_bonus.c
 void	move_right(t_struct *data, int key);
 void	move_left(t_struct *data, int key);
 void	move_down(t_struct *data, int key);
 void	move_up(t_struct *data, int key);
 
-void	fullfill_map(t_struct *data);
-void	create_imgs(t_struct *data);
-void	map_start(t_struct *data, int flag);
+// map_utils_bonus.c
+void	get_img_path(t_struct *data, int key);
+int		map_generator(t_struct *data);
+int		alloc_map(t_struct *data);
+void	map_copy(t_struct *data);
+void	free_maps(t_struct	*data);
+
+// map_parsing_bonus.c
+int		ft_map_parsing(t_struct *data);
+int		wall_checker(size_t rows, size_t cols, t_struct *data);
+void	path_finder(t_struct *data, int x, int y);
+int		check_rows_len(t_struct *data);
+int		check_map_values(t_struct *data);
+
+// map_checker_bonus.c
+void	exit_finder(t_struct *data);
+void	player_finder(t_struct *data);
+int		check_accessible_map(t_struct *data);
+int		check_objects(t_struct *data);
 
 // enemy_animation_bonus.c
-int	animate_sprites(t_struct *data);
+void	create_enemy(t_struct *data);
+void	display_enemy(t_struct *data);
+int		animate_sprites(t_struct *data);
+
+// display_map_bonus.c
+void	create_imgs(t_struct *data);
+void	fullfill_map(t_struct *data);
+void	fillmap_function(t_struct *data, int flag);
+void	map_start(t_struct *data, int flag);
+void	print_map(t_struct *data);
+
+// so_long_utils_bonus.c
+int		create_trgb(int t, int r, int g, int b);
+int		check_file_extension(t_struct *data);
+
+// enemy_animation_bonus.c
+int		animate_sprites(t_struct *data);
 
 #endif
