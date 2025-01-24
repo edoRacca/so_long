@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:44:46 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 18:59:20 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/24 10:51:36 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_file_extension(t_struct *data)
 
 	str = ft_strchr(data->map_path, '.');
 	if (str)
-		if (ft_strncmp(str, ".ber", 4) == 0)
+		if (ft_strncmp(str, ".ber", 4) == 0 && str[4] == '\0')
 			return (TRUE);
 	return (FALSE);
 }

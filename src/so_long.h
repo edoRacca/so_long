@@ -6,7 +6,7 @@
 /*   By: edraccan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 14:36:11 by edraccan          #+#    #+#             */
-/*   Updated: 2025/01/20 19:20:38 by edraccan         ###   ########.fr       */
+/*   Updated: 2025/01/24 11:06:49 by edraccan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@
 # define FALSE 0
 # define ROW 1
 # define COL 0
+
+# define T_RED "\033[31m"
+# define T_GREEN "\033[32m"
+# define T_YELLOW "\033[33m"
+# define T_BLUE "\033[34m"
+# define T_WHITE "\033[0m"
+# define B_RED "\033[41m"
+# define B_GREEN "\033[42m"
+# define B_BLUE "\033[44m"
 
 # define CPATH "textures/masterball_ground.xpm"
 # define PPATH_L "textures/Garchomp_left_ground.xpm"
