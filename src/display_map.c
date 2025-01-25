@@ -91,7 +91,7 @@ void	print_map(t_struct *data)
 	i = 0;
 	while (data->map[i])
 	{
-		printf("%d %s\n", i, data->map[i]);
+		ft_printf("%d %s\n", i, data->map[i]);
 		i++;
 	}
 }
